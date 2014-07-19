@@ -29,7 +29,7 @@ The following details all processing carried out by 'run_analysis.R' to transfor
 * Convert 'subject_id' and 'activity_type' to factors
 * Load the data.table library so that we can use it to summarise the data
 * Create a data.table object 'dtfull' from 'dffull'
-* Summarise data, grouping by 'subject_id', 'activity_type' and providing the mean of all other columns
+* Summarise data (180 observations of  68 variables), grouping by 'subject_id', 'activity_type' and providing the mean of all other columns
 * Write out to a text file 'HAR_DATA.txt' with column names but no row labels and a space separator
 
 
@@ -39,7 +39,8 @@ The following details all processing carried out by 'run_analysis.R' to transfor
 - COLUMN_NAME
   - LENGTH
   - DESCRIPTION
-  - VALUE RANGE
+  - VALUE_RANGE
+
 =============================================================
 
 - subject_id
