@@ -48,7 +48,7 @@
 ## sorting or merging required at this stage
 	fulltrain <- cbind(strain,ztrain)
 
-## Append column names to the fulltest dataframe
+## Append column names to the fulltrain dataframe
 	names(fulltrain) <- c("subject_id", "activity_type", colnames)
 
 
