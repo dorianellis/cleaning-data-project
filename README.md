@@ -16,10 +16,11 @@ This script generates a single, space-delimited, text file named 'HAR_DATA.txt'.
 To run this script you must have the following in place:
 * Source data files: https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip
 * These source data files available in your R working directory in a sub-folder './training-analysis/'
-* The script requires R package data.table library to be installed
+* The script requires R 'data.table' library to be installed
 
 ###Source file overview
 The source dataset download contains many files but only the following will be used by this script:
+* 'features.txt': List of all measurement features in the main data sets.
 * 'activity_labels.txt': Links the activity class labels with their activity name.
 * 'train/X_train.txt': Main Training set.
 * 'train/y_train.txt': Identifies the activity performed for each window sample.
