@@ -1,17 +1,53 @@
-DATA DICTIONARY - HAR_DATA.txt
+##DATA DICTIONARY - HAR_DATA.txt
+
+##Data transformations
+The following details all processing carried out by 'run_analysis.R' to transformt the source data files into a summarised output 'HAR_DATA.txt'
+
+* Import the 'features.txt' data which describes the columns in X_train and X_test sets 
+* Identify columns describing mean and standard deviation values by matching rows ending 'mean()' or 'std()'
+* Create a vector of cleaner column names 'colnames' by
+  * Removing brackets
+  * Keeping the core of label as CamelCase for readability
+  * Replacing dashes with underscores
+  * Prefix with 'time' or 'freq' instead of 't' or 'f'
+  * Fixing a labelling error in the source data where 'BodyBody' appears instead of 'Body'
+* Import 'activity_labels.txt' dataset into 'activitytype' data frame and assign column names 'activity_code', 'activity_label'
+* Import the 'test/X_test.txt' data to 'xtest', specifying only the target columns identified in the earlier step
+* Import the 'test/y_test.txt' activity data to 'ytest'
+* Append the 'ytest' to the 'xtest' data frame and create 'ztest'- the rows in both data frames correspond so no sorting or merging required at this stage
+* Import the 'test/subject_test.txt' data to 'stest'
+* Append the 'stest' to the 'ztest' data frame and create 'fulltest' - the rows in both data frames correspond so no sorting or merging required at this stage
+* Append column names 'colnames' to the 'fulltest' data frame ('subject_id', 'activity_type', colnames)
+* Import the 'train/X_train.txt' data to 'xtrain', specifying only the target columns identified in the earlier step
+* Import the 'train/y_train.txt' activity data to 'ytrain'
+* Append the 'ytrain' to the 'xtrain' data frame and create 'ztrain'- the rows in both data frames correspond so no sorting or merging required at this stage
+* Import the 'train/subject_train.txt' data to 'strain'
+* Append the 'strain' to the 'ztrain' data frame and create 'fulltrain' - the rows in both data frames correspond so no sorting or merging required at this stage
+* Append column names 'colnames' to the 'fulltrain' data frame ('subject_id', 'activity_type', colnames)
+* Join the two data frames 'fulltest' and 'fulltrain' together into 'dffull' data frame
+* Use the 'activitytype' data frame to overwrite the activity ids (numeric) with user-readable activity type names
+* Convert 'subject_id' and 'activity_type' to factors
+* Load the data.table library so that we can use it to summarise the data
+* Create a data.table object 'dtfull' from 'dffull'
+* Summarise data, grouping by 'subject_id', 'activity_type' and providing the mean of all other columns
+* Write out to a text file 'HAR_DATA.txt' with column names but no row labels and a space separator
+
+
+
+###Variable detail
 
 subject_id	2
 	- An identifier of the subject who carried out the experiment
-		1 to 30
+	  - 1 to 30
 
 activity_type	1
 	- Activity label describing the physical activity undertaken
-		1	"WALKING"
-		2	"WALKING_UPSTAIRS"
-		3	"WALKING_DOWNSTAIRS"
-		4	"SITTING"
-		5	"STANDING"
-		6	"LAYING"
+	  - 1	"WALKING"
+	  - 2	"WALKING_UPSTAIRS"
+	  - 3	"WALKING_DOWNSTAIRS"
+	  - 4	"SITTING"
+	  - 5	"STANDING"
+	  - 6	"LAYING"
 	
 time_BodyAcc_mean_X	18
 	- Mean of mean time domain triaxial Body Accelerometer - X-axis
