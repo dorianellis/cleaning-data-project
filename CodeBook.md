@@ -1,6 +1,6 @@
 ##DATA DICTIONARY - HAR_DATA.txt
 
-##Data transformations
+###Data transformations
 The following details all processing carried out by 'run_analysis.R' to transformt the source data files into a summarised output 'HAR_DATA.txt'
 
 * Import the 'features.txt' data which describes the columns in X_train and X_test sets 
