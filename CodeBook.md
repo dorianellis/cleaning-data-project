@@ -36,9 +36,9 @@ The following details all processing carried out by 'run_analysis.R' to transfor
 
 ###Variable detail
 
-subject_id	2
-	- An identifier of the subject who carried out the experiment
-	  - 1 to 30
+**subject_id**	2
+An identifier of the subject who carried out the experiment
+1 to 30
 
 activity_type	1
 	- Activity label describing the physical activity undertaken
