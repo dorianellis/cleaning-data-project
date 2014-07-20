@@ -72,5 +72,5 @@
 ## excluding columns specified in the by parameter)
 	dttidy <- dtfull[,lapply(.SD,mean),by=groupCols]
 
-## Write out to a text file with column names but no row labels and a space separator
-	write.table(dttidy,"./training_analysis/HAR_DATA.txt",sep=" ", row.names=FALSE, col.names=TRUE)
+## Write out to a space-delimited, un-quoted, text file with column names
+	write.table(dttidy,"./training_analysis/HAR_DATA.txt",sep=" ", quote=FALSE, row.names=FALSE, col.names=TRUE)
